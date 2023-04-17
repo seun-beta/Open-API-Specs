@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  description: Developing and testing your web or mobile app can be hard without any data to work with. This is why Random Data API exists. Use any of our API endpoints and fetch data that will allow you faster development and testing cycle. All responses come with ID (integer) and UID (string).
+
+    For example, you can combine our users, stripe and subscription resources to develop and test your membership feature.
+  title: Random Data API
+  version: 2.0.0
+servers:
+  - url: https://random-data-api.com/api/v2
+tags:
+  - name: users
+  - name: addresses
+  - name: banks
+  - name: appliances
+  - name: beers
+  - name: blood_types
+  - name: credit_cards
+  
+paths:
+  /users:
+    get:
+      tags:
+      - users
+      description: Fetch a random user
+      operationId: getUsers
+      parameters:
+      - in: query
+        name: size
+        description: The number of users to be returned
+        schema:
+          default: 1
+          type: integer
+      - in: query
+        name: response_type
+        description: The response type either json or xml
+        schema:
+          default: json
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+            application/xml: {}
+
+
+  /addresses:
+    get:
+      tags:
+      - addresses
+      description: Fetch a random address
+      operationId: getAddresses
+      parameters:
+      - in: query
+        name: size
+        description: The number of address to be returned
+        schema:
+          default: 1
+          type: integer
+      - in: query
+        name: response_type
+        description: The response type either json or xml
+        schema:
+          default: json
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+            application/xml: {}
+
+
+  /banks:
+    get:
+      tags:
+      - banks
+      description: Fetch a random bank
+      operationId: getBanks
+      parameters:
+      - in: query
+        name: size
+        description: The number of banks to be returned
+        schema:
+          default: 1
+          type: integer
+      - in: query
+        name: response_type
+        description: The response type either json or xml
+        schema:
+          default: json
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+            application/xml: {}
+      
+
+  /appliances:
+    get:
+      tags:
+      - appliances
+      description: Fetch a random appliance
+      operationId: getAppliances
+      parameters:
+      - in: query
+        name: size
+        description: The number of appliances to be returned
+        schema:
+          default: 1
+          type: integer
+      - in: query
+        name: response_type
+        description: The response type either json or xml
+        schema:
+          default: json
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+            application/xml: {}
+
+
+  /beers:
+    get:
+      tags:
+      - beers
+      description: Fetch a beer
+      operationId: getBeers
+      parameters:
+      - in: query
+        name: size
+        description: The number of beers to be returned
+        schema:
+          default: 1
+          type: integer
+      - in: query
+        name: response_type
+        description: The response type either json or xml
+        schema:
+          default: json
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+            application/xml: {}
+      
+
+  /blood_types:
+    get:
+      tags:
+      - blood_types
+      description: Fetch a random blood type
+      operationId: getBloodTypes
+      parameters:
+      - in: query
+        name: size
+        description: The number of blood types to be returned
+        schema:
+          default: 1
+          type: integer
+      - in: query
+        name: response_type
+        description: The response type either json or xml
+        schema:
+          default: json
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+            application/xml: {}
+
+
+  /credit_cards:
+    get:
+      tags:
+      - credit_cards
+      description: Fetch a random credit card
+      operationId: getCreditCards
+      parameters:
+      - in: query
+        name: size
+        description: The number of credit cards to be returned
+        schema:
+          default: 1
+          type: integer
+      - in: query
+        name: response_type
+        description: The response type either json or xml
+        schema:
+          default: json
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+            application/xml: {}
+      
