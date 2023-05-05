@@ -1,0 +1,203 @@
+openapi: 3.0.1
+info:
+  title: The Amiibo API
+  description: The Amiibo API is a REST API based on Amiibo the Nintendo collectable figures that can be use to store data via NFC reader on certain Nintendo devices.
+  version: "1"
+servers:
+  - url: https://amiiboapi.com/api
+  
+paths:
+  /amiibo/:
+    get:
+      operationId: getAmiibos
+      description: Get all Amiibos information or specific amiibo as a list.
+
+      parameters:
+        - name: name
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+
+        - name: id
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+        - name: type
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+        - name: gameseries
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+        - name: amiiboSeries
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+        - name: character
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+  
+        - name: showgames
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+  
+        - name: showusage
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+      responses:
+        "200":
+          description: All Rick and Morty characters 
+
+
+  /type/:
+    get:
+      operationId: getType
+      description: Get all the amiibo's type available in the database as a list
+      parameters:
+      
+        - name: key
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        
+        - name: name
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+      responses:
+        "200":
+          description: A single Rick and Morty characters 
+          
+          
+  /gameseries/:
+    get:
+      operationId: getGameSeries
+      description: Get all the amiibo's game series available in the database as a list.
+      parameters:
+      
+        - name: key
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+
+        - name: name
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+      responses:
+        "200":
+          description: A single Rick and Morty characters 
+          
+  
+  /amiiboseries/:
+    get:
+      operationId: getAmiiboSeries
+      description: Get all the amiibo's series available in the database as a list.
+      
+      parameters:
+      
+        - name: key
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        
+        - name: name
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+      responses:
+        "200":
+          description: A single Rick and Morty characters 
+
+
+  /character/:
+    get:
+      operationId: getCharacter
+      description: Get all the character available in the database as a list.
+      
+      parameters:
+        - name: key
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+
+        - name: name
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+  
+      responses:
+        "200":
+          description: A single Rick and Morty characters 
+
+
+  /lastupdated/:
+    get:
+      operationId: getLastUpdated
+      description: Get the timestamp where the amiibo data was last updated.
+
+      responses:
+        "200":
+          description: Get the timestamp where the amiibo data was last updated.
