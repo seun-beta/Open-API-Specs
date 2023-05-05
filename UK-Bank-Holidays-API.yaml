@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: UK Bank Holidays API
+  version: 1.0.0
+  description: API for retrieving bank holiday information in the UK
+servers:
+  - url: https://www.gov.uk
+
+paths:
+  /bank-holidays.json:
+    get:
+      summary: Get bank holiday information
+      operationId: getBankHolidays
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankHolidaysResponse'
+
+components:
+  schemas:
+    BankHolidaysResponse:
+      type: object
+      properties:
+        englandAndWales:
+          $ref: '#/components/schemas/Division'
+        scotland:
+          $ref: '#/components/schemas/Division'
+        # Add other divisions as needed
+
+    Division:
+      type: object
+      properties:
+        division:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankHoliday'
+
+    BankHoliday:
+      type: object
+      properties:
+        title:
+          type: string
+        date:
+          type: string
+          format: date
+        notes:
+          type: string
+        bunting:
+          type: boolean
