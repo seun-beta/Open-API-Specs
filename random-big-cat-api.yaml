@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: The Random Big Cat API
+  version: 1.0.0
+  description: The API for randombig.cat, providing access to big cat images.
+servers:
+  - url: https://randombig.cat
+paths:
+  /roar:
+    get:
+      description: Retrieve a random big cat image.
+      parameters:
+        - name: filter
+          in: query
+          description: Filter the image by file extensions.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: include
+          in: query
+          description: Include the image if it has any of the specified file extensions.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+  /roar.json:
+    get:
+      description: Retrieve a random big cat image in JSON format.
+      parameters:
+        - name: filter
+          in: query
+          description: Filter the image by file extensions.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /cattes:
+    get:
+      description: Retrieve multiple random big cat images.
+      parameters:
+        - name: filter
+          in: query
+          description: Filter the images by file extensions.
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            image/jpeg:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: binary
